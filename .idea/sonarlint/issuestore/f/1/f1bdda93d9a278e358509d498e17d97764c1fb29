@@ -1,0 +1,6 @@
+
+vpython:S117{"ZRename this local variable "videoLink" to match the regular expression ^[_a-z][a-z0-9_]*$.(ö†ŠÀþÿÿÿÿ
+wpython:S117„"ZRename this local variable "videoLink" to match the regular expression ^[_a-z][a-z0-9_]*$.(ö†ŠÀþÿÿÿÿ
+Ipython:S5806š"+Rename this variable; it shadows a builtin.(šÎ‹ªûÿÿÿÿ
+upython:S117¢"]Rename this local variable "playlistLink" to match the regular expression ^[_a-z][a-z0-9_]*$.(¡Üþ±
+Ipython:S5806Å"+Rename this variable; it shadows a builtin.(šÎ‹ªûÿÿÿÿ
