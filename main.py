@@ -21,6 +21,7 @@ class mainapp(QMainWindow,FORM_CLASS):
         self.Handle_UI()
         self.Button_Handler()
         self.Theme_Handler()
+        self.lineEdit.setPlaceholderText("https://download.sublimetext.com/sublime_text_build_4113_x64_setup.exe")
 
     def Handle_UI(self):
         self.setWindowTitle("Downloader")
@@ -146,12 +147,12 @@ class mainapp(QMainWindow,FORM_CLASS):
         read_data = received
         if total > 0 :
             download_percentage = read_data * 100 / total
-            self.progressBar_2.setValue(download_percentage)
+            self.progressBar_2.setValue(int(download_percentage))
             QApplication.processEvents()
 
 
     def Video_Directory_Browse(self):
-        dir = QFileDialog.getExistingDirectory(self,"Select Download Directory")
+        dir = QFileDialog.getExistingDirectory(self, "Select Download Directory")
         self.lineEdit_4.setText(dir)
 
 
