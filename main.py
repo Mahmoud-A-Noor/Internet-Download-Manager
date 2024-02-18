@@ -9,6 +9,9 @@ import sys
 import urllib.request
 import pafy
 import humanize
+from pytube import Playlist
+
+pafy.set_api_key("YOUR_API_KEY")
 
 
 FORM_CLASS,_=loadUiType(path.join(path.dirname(__file__),"GUI.ui"))
@@ -163,25 +166,28 @@ class mainapp(QMainWindow,FORM_CLASS):
         playlistLink = self.lineEdit_6.text()
         savedir = self.lineEdit_5.text()
 
-        if playlistLink == '' or savedir == '' :
-            QMessageBox.warning(self, "Data Error", "Provide a valid Playlist URL or save location")
-
+        if playlistLink == '':
+            QMessageBox.warning(self, "Data Error", "Provide a valid Playlist URL")
+        elif savedir == '':
+            QMessageBox.warning(self, "Data Error", "Provide a valid Save location")
         else:
-            playlist = pafy.get_playlist(playlistLink)
-            videos = playlist['items']
+            # playlist = pafy.get_playlist2(playlistLink)
+            playlist = Playlist(playlistLink)
+            playlist_title = playlist.title
+            # videos = playlist['items']
 
-            if(os.path.exists(str(playlist['title']))):
-                os.chdir(str(playlist['title']))
+            if(os.path.exists(playlist_title)):
+                os.chdir(playlist_title)
             else:
                 os.chdir(savedir)
-                os.mkdir(str(playlist['title']))
-                os.chdir(str(playlist['title']))
+                os.mkdir(playlist_title)
+                os.chdir(playlist_title)
 
             current_video = 1
 
-            for video in videos:
+            for video_url in playlist:
                 self.lcdNumber.display(current_video)
-                video['pafy'].getbest(preftype='mp4').download(callback=self.Playlist_Progress)
+                pafy.new(video_url).getbest(preftype='mp4').download(callback=self.Playlist_Progress)
                 QApplication.processEvents()
                 current_video+=1
 
@@ -190,7 +196,7 @@ class mainapp(QMainWindow,FORM_CLASS):
         read_data = received
         if total > 0 :
             download_percentage = read_data * 100 / total
-            self.progressBar_3.setValue(download_percentage)
+            self.progressBar_3.setValue(int(download_percentage))
             QApplication.processEvents()
 
 
