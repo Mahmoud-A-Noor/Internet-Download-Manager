@@ -11,9 +11,6 @@ import pafy
 import humanize
 from pytube import Playlist
 
-pafy.set_api_key("AIzaSyBVdUcgEnmX6LDIcXOIlThlYzkyeepu4Cg")
-
-
 FORM_CLASS,_=loadUiType(path.join(path.dirname(__file__),"GUI.ui"))
 
 class mainapp(QMainWindow,FORM_CLASS):
