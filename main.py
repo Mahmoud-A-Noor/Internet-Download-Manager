@@ -11,7 +11,7 @@ import pafy
 import humanize
 from pytube import Playlist
 
-pafy.set_api_key("YOUR_API_KEY")
+pafy.set_api_key("AIzaSyBVdUcgEnmX6LDIcXOIlThlYzkyeepu4Cg")
 
 
 FORM_CLASS,_=loadUiType(path.join(path.dirname(__file__),"GUI.ui"))
@@ -25,6 +25,7 @@ class mainapp(QMainWindow,FORM_CLASS):
         self.Button_Handler()
         self.Theme_Handler()
         self.lineEdit.setPlaceholderText("https://download.sublimetext.com/sublime_text_build_4113_x64_setup.exe")
+        self.lineEdit_7.setPlaceholderText("  Search online how to get your own Key")
 
     def Handle_UI(self):
         self.setWindowTitle("Downloader")
@@ -165,12 +166,16 @@ class mainapp(QMainWindow,FORM_CLASS):
     def Download_Youtube_Playlist(self):
         playlistLink = self.lineEdit_6.text()
         savedir = self.lineEdit_5.text()
+        youtube_api_key = self.lineEdit_7.text()
 
         if playlistLink == '':
             QMessageBox.warning(self, "Data Error", "Provide a valid Playlist URL")
         elif savedir == '':
             QMessageBox.warning(self, "Data Error", "Provide a valid Save location")
+        elif youtube_api_key == '':
+            QMessageBox.warning(self, "Data Error", "Provide a valid Youtube API Key")
         else:
+            pafy.set_api_key(youtube_api_key)
             # playlist = pafy.get_playlist2(playlistLink)
             playlist = Playlist(playlistLink)
             playlist_title = playlist.title

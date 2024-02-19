@@ -546,7 +546,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -812,7 +812,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       <property name="geometry">
        <rect>
         <x>220</x>
-        <y>130</y>
+        <y>110</y>
         <width>491</width>
         <height>31</height>
        </rect>
@@ -850,7 +850,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       <property name="geometry">
        <rect>
         <x>720</x>
-        <y>130</y>
+        <y>110</y>
         <width>71</width>
         <height>31</height>
        </rect>
@@ -863,7 +863,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
       <property name="geometry">
        <rect>
         <x>70</x>
-        <y>130</y>
+        <y>110</y>
         <width>141</width>
         <height>31</height>
        </rect>
@@ -911,10 +911,38 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
      <widget class="QLCDNumber" name="lcdNumber">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>180</y>
+        <x>370</x>
+        <y>200</y>
         <width>111</width>
-        <height>61</height>
+        <height>51</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>160</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Youtube API Key</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_7">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>160</y>
+        <width>571</width>
+        <height>31</height>
        </rect>
       </property>
      </widget>
